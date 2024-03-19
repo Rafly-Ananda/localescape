@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  min-width: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.custom-shape-divider-bottom-1710860644 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1710860644 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 162px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1710860644 .shape-fill {
+  fill: #fcf1ed;
+}
+
+/* 2nd Divider */
+.custom-shape-divider-bottom-1710860914 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1710860914 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 106px;
+}
+
+.custom-shape-divider-bottom-1710860914 .shape-fill {
+  fill: #fcf1ed;
+}
+
+/* Footer Divider */
+.custom-shape-divider-top-1710864196 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-top-1710864196 svg {
+  position: relative;
+  display: block;
+  width: calc(138% + 1.3px);
+  height: 140px;
+}
+
+.custom-shape-divider-top-1710864196 .shape-fill {
+  fill: #faf1ed;
+}
