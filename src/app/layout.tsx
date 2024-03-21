@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import { TRPCReactProvider } from "@/trpc/react";
 import localFont from "next/font/local";
-import Navbar from "@/app/_components/Navbar";
+// import Navbar from "@/app/_components/Navbar";
 import Footer from "@/app/_components/Footer";
 
 const causten = localFont({
@@ -23,9 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="light">
       <body className={`${causten.className} bg-[#3b4b71]`}>
-        <Navbar />
+        {/* <Navbar /> */}
         <TRPCReactProvider>{children}</TRPCReactProvider>
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );
