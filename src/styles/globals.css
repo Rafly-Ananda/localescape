@@ -74,3 +74,26 @@
 .custom-shape-divider-top-1710864196 .shape-fill {
   fill: #faf1ed;
 }
+
+/* Mobile Dividers */
+
+.custom-shape-divider-bottom-1710996322 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1710996322 svg {
+  position: relative;
+  display: block;
+  width: calc(135% + 1.3px);
+  height: 71px;
+}
+
+.custom-shape-divider-bottom-1710996322 .shape-fill {
+  fill: #fcf1ed;
+}

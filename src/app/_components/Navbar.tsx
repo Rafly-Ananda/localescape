@@ -1,18 +1,30 @@
+"use client";
 import React from "react";
+import Hamburger from "hamburger-react";
+import { useState } from "react";
 
 // Icons
 import { IoIosArrowDown } from "react-icons/io";
 
 export default function Navbar() {
+  const [isHamburgerOpen, setIsHamburgerOpen] = useState<boolean>(false);
   return (
-    <div className="absolute z-10 flex h-[128px] w-full items-center justify-between px-20 py-5">
+    <div className="absolute z-10 flex h-[128px] w-full items-center justify-between px-6 py-5 lg:px-20">
       <img
         src="/assets/nav_logo.png"
         alt="Nav Logo"
-        className="h-auto w-auto"
+        className="h-14 w-16 lg:h-auto lg:w-auto"
       />
 
-      <ul className="flex gap-[28px] font-bold text-white">
+      <div className="lg:hidden">
+        <Hamburger
+          toggled={isHamburgerOpen}
+          toggle={setIsHamburgerOpen}
+          color="#ffffff"
+        />
+      </div>
+
+      <ul className="hidden gap-[28px] font-bold text-white lg:flex">
         <li className="flex items-center justify-center gap-2">
           Destinations <IoIosArrowDown className="text-lg" />
         </li>

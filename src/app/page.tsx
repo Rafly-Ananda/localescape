@@ -1,16 +1,30 @@
+"use client";
 import localFont from "next/font/local";
 import { MdLocationOn } from "react-icons/md";
 import { IoWarningOutline } from "react-icons/io5";
 import { FaStar, FaArrowRight, FaInstagram } from "react-icons/fa6";
+import React from "react";
+import Slider from "react-slick";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const cowboy = localFont({
   src: "../../public/fonts/cowboy.otf",
   display: "swap",
 });
 
-export default async function Home() {
+const settings = {
+  className: "center",
+  infinite: true,
+  centerPadding: "60px",
+  slidesToShow: 1,
+  swipeToSlide: true,
+};
+
+export default function Home() {
   return (
-    <main className="h-full w-full">
+    <main className="h-full w-full overflow-hidden">
       {/* Hero Section */}
       <div className="relative h-screen">
         <img
@@ -20,7 +34,7 @@ export default async function Home() {
         />
 
         <div
-          className={`uppercase ${cowboy.className} absolute top-1/3 mt-[5vh] pl-20 text-5xl font-extrabold text-white`}
+          className={`uppercase ${cowboy.className} absolute top-1/2 mt-[5vh] pl-6 text-2xl font-extrabold text-white lg:top-1/3 lg:pl-20 lg:text-5xl`}
         >
           <h1>begin your adventure</h1>
           <h1>travel & nature getaways</h1>
@@ -29,8 +43,8 @@ export default async function Home() {
         </div>
       </div>
 
-      {/* Wave Divider */}
-      <div className="custom-shape-divider-bottom-1710860644">
+      {/* Wave Divider Start */}
+      <div className="custom-shape-divider-bottom-1710860644 hidden lg:block">
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
@@ -44,16 +58,31 @@ export default async function Home() {
         </svg>
       </div>
 
+      <div className="custom-shape-divider-bottom-1710996322 block lg:hidden">
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+            className="shape-fill"
+          ></path>
+        </svg>
+      </div>
+      {/* Wave Divider End */}
+
       {/* Escape Section */}
-      <div className="h-full w-full bg-[#FCF1ED] px-20 pb-32 pt-20">
-        <div className="flex justify-between ">
+      <div className="h-full w-full bg-[#FCF1ED] p-6 pb-32 pt-20 lg:px-20">
+        <div className="flex flex-col items-center justify-between lg:flex-row lg:items-start ">
           <h1
-            className={`flex-1 uppercase ${cowboy.className} text-5xl font-extrabold text-[#3b4b71]`}
+            className={`flex-1 uppercase ${cowboy.className} text-center text-2xl font-extrabold text-[#3b4b71] lg:text-left lg:text-5xl`}
           >
-            escape into the unknown
+            escape into <br className="lg:hidden"></br> the unknown
           </h1>
 
-          <h1 className=" mt-2 flex-1 font-bold text-[#3b4b71]">
+          <h1 className="mt-2 flex-1 text-center text-sm font-bold text-[#3b4b71] lg:text-left lg:text-base">
             Step out of your comfort zones and explore new horizons filled with
             suprises, wonders, and the thrill of new experiences.
           </h1>
@@ -61,39 +90,8 @@ export default async function Home() {
 
         {/* Package Showcase */}
         <div className="mt-16 flex gap-4">
-          {/* Big Main */}
-          <div className="relative h-[710px] min-w-[516px] rounded-xl border-2 border-[#3b4b71]">
-            <div className="absolute top-[40px] z-10 flex gap-2 rounded-r-full bg-[#FF8197] px-5 py-1">
-              <FaStar color="#f9cfa3" />
-              <span className="text-sm font-semibold text-[#3b4b71]">
-                Exclusive Package
-              </span>
-            </div>
-            <img
-              src="/assets/hero.jpg"
-              alt="hero"
-              className="h-full w-full rounded-xl object-cover brightness-50"
-            />
-
-            <div className="absolute bottom-0 flex flex-col items-start p-4 text-white">
-              <div className="flex items-center justify-center gap-2">
-                <IoWarningOutline color="white" className="text-lg" />
-                <span className="text-md">Temporary closed</span>
-              </div>
-              <h4 className={`text-3xl text-[#f3caa0] ${cowboy.className}`}>
-                TASTE OF WILDERNESS
-              </h4>
-              <div className="flex items-center justify-center gap-2">
-                <MdLocationOn color="white" className="text-lg" />
-                <span className="text-md font-bold">
-                  Ujung Kulon National Park
-                </span>
-              </div>
-            </div>
-          </div>
-          {/* 4 Smaller */}
-          <div className="relative grid h-[710px] w-full grid-cols-2 grid-rows-2 gap-4">
-            <div className="relative">
+          <Slider {...settings}>
+            <div className="relative h-[710px] min-w-[516px] rounded-xl border-2 border-[#3b4b71]">
               <div className="absolute top-[40px] z-10 flex gap-2 rounded-r-full bg-[#FF8197] px-5 py-1">
                 <FaStar color="#f9cfa3" />
                 <span className="text-sm font-semibold text-[#3b4b71]">
@@ -112,49 +110,18 @@ export default async function Home() {
                   <span className="text-md">Temporary closed</span>
                 </div>
                 <h4 className={`text-3xl text-[#f3caa0] ${cowboy.className}`}>
-                  SANCTUARY OF WONDERS
+                  TASTE OF WILDERNESS
                 </h4>
                 <div className="flex items-center justify-center gap-2">
                   <MdLocationOn color="white" className="text-lg" />
                   <span className="text-md font-bold">
-                    Way Kambas National Park
+                    Ujung Kulon National Park
                   </span>
                 </div>
               </div>
             </div>
-            <div className="relative">
-              <img
-                src="/assets/hero.jpg"
-                alt="hero"
-                className="h-full w-full rounded-xl object-cover brightness-50"
-              />
-              <div className="absolute bottom-0 flex flex-col items-start p-4 text-white">
-                <h4 className={`text-3xl text-[#f3caa0] ${cowboy.className}`}>
-                  THE LOST PARADISE
-                </h4>
-                <div className="flex items-center justify-center gap-2">
-                  <MdLocationOn color="white" className="text-lg" />
-                  <span className="text-md font-bold">Kei Islands</span>
-                </div>
-              </div>
-            </div>
-            <div className="relative">
-              <img
-                src="/assets/hero.jpg"
-                alt="hero"
-                className="h-full w-full rounded-xl object-cover brightness-50"
-              />
-              <div className="absolute bottom-0 flex flex-col items-start p-4 text-white">
-                <h4 className={`text-3xl text-[#f3caa0] ${cowboy.className}`}>
-                  EDGE OF WONDERS
-                </h4>
-                <div className="flex items-center justify-center gap-2">
-                  <MdLocationOn color="white" className="text-lg" />
-                  <span className="text-md font-bold">Labuan Bajo Island</span>
-                </div>
-              </div>
-            </div>
-            <div className="relative">
+
+            <div className="relative h-[710px] min-w-[516px] rounded-xl border-2 border-[#3b4b71]">
               <div className="absolute top-[40px] z-10 flex gap-2 rounded-r-full bg-[#FF8197] px-5 py-1">
                 <FaStar color="#f9cfa3" />
                 <span className="text-sm font-semibold text-[#3b4b71]">
@@ -166,21 +133,54 @@ export default async function Home() {
                 alt="hero"
                 className="h-full w-full rounded-xl object-cover brightness-50"
               />
+
               <div className="absolute bottom-0 flex flex-col items-start p-4 text-white">
                 <div className="flex items-center justify-center gap-2">
                   <IoWarningOutline color="white" className="text-lg" />
                   <span className="text-md">Temporary closed</span>
                 </div>
                 <h4 className={`text-3xl text-[#f3caa0] ${cowboy.className}`}>
-                  FLAVORS OF NATURE
+                  TASTE OF WILDERNESS
                 </h4>
                 <div className="flex items-center justify-center gap-2">
                   <MdLocationOn color="white" className="text-lg" />
-                  <span className="text-md font-bold">Banyuwangi</span>
+                  <span className="text-md font-bold">
+                    Ujung Kulon National Park
+                  </span>
                 </div>
               </div>
             </div>
-          </div>
+
+            <div className="relative h-[710px] min-w-[516px] rounded-xl border-2 border-[#3b4b71]">
+              <div className="absolute top-[40px] z-10 flex gap-2 rounded-r-full bg-[#FF8197] px-5 py-1">
+                <FaStar color="#f9cfa3" />
+                <span className="text-sm font-semibold text-[#3b4b71]">
+                  Exclusive Package
+                </span>
+              </div>
+              <img
+                src="/assets/hero.jpg"
+                alt="hero"
+                className="h-full w-full rounded-xl object-cover brightness-50"
+              />
+
+              <div className="absolute bottom-0 flex flex-col items-start p-4 text-white">
+                <div className="flex items-center justify-center gap-2">
+                  <IoWarningOutline color="white" className="text-lg" />
+                  <span className="text-md">Temporary closed</span>
+                </div>
+                <h4 className={`text-3xl text-[#f3caa0] ${cowboy.className}`}>
+                  TASTE OF WILDERNESS
+                </h4>
+                <div className="flex items-center justify-center gap-2">
+                  <MdLocationOn color="white" className="text-lg" />
+                  <span className="text-md font-bold">
+                    Ujung Kulon National Park
+                  </span>
+                </div>
+              </div>
+            </div>
+          </Slider>
         </div>
       </div>
 
